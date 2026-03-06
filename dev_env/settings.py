@@ -16,7 +16,7 @@ if DEBUG:
     logger.setLevel(logging.DEBUG)
     logger.warning('DEBUG MODE ON. Do NOT use this Development Environment!')
 
-ALLOWED_HOSTS = ['127.0.0.1', '192.168.1.102', 'localhost']
+ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = ['https://*.preview.app.github.dev']
 
 INSTALLED_APPS = [
