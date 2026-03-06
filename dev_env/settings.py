@@ -19,6 +19,13 @@ if DEBUG:
 ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = ['https://*.preview.app.github.dev']
 
+
+
+if os.environ.get("CREATE_SUPERUSER") == "True":
+    from django.contrib.auth.models import User
+    if not User.objects.filter(username="admin").exists():
+        User.objects.create_superuser("admin", "admin@gmail.com", "admin123")
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
