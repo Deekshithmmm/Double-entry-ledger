@@ -31,7 +31,7 @@ INSTALLED_APPS = [
 
 if DEBUG:
     INSTALLED_APPS += [
-        'debug_toolbar',
+        
     ]
 
     INTERNAL_IPS = [
@@ -50,7 +50,7 @@ MIDDLEWARE = [
 
 if DEBUG:
     MIDDLEWARE += [
-        'debug_toolbar.middleware.DebugToolbarMiddleware',
+        
     ]
 
 ROOT_URLCONF = 'dev_env.urls'
