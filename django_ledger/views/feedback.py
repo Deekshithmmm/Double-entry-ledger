@@ -3,6 +3,7 @@ Django Ledger created by Miguel Sanda <msanda@arrobalytics.com>.
 Modified to send feedback directly to GitHub Issues.
 """
 
+import os
 import requests
 
 from django.views.generic import FormView
@@ -11,13 +12,12 @@ from django_ledger.views.mixins import DjangoLedgerSecurityMixIn, SuccessUrlNext
 
 
 # GitHub settings
-import os
-
-GITHUB_TOKEN = os.getenv("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")
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 GITHUB_REPO = "Deekshithmmm/Double-entry-ledger"
 
 
 def create_github_issue(title, body):
+
     url = f"https://api.github.com/repos/{GITHUB_REPO}/issues"
 
     headers = {
@@ -30,7 +30,9 @@ def create_github_issue(title, body):
         "body": body
     }
 
-    requests.post(url, headers=headers, json=payload)
+    response = requests.post(url, headers=headers, json=payload)
+
+    return response
 
 
 class BugReportView(DjangoLedgerSecurityMixIn,
