@@ -112,6 +112,7 @@ class EntityModelAdmin(ModelAdmin):
         EntityManagementInLine
     ]
     actions = [
+        'delete_selected',
         'add_code_of_accounts',
         'populate_random_data'
     ]
@@ -211,4 +212,4 @@ class EntityModelAdmin(ModelAdmin):
         super().save_model(request, obj, form, change)
 
     def has_delete_permission(self, request, obj=None):
-        return False
+        return True
