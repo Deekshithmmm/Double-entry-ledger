@@ -11,7 +11,7 @@ from django_ledger.forms.feedback import BugReportForm, RequestNewFeatureForm
 from django_ledger.views.mixins import DjangoLedgerSecurityMixIn, SuccessUrlNextMixIn
 
 
-# GitHub settings
+# GitHub configuration
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 GITHUB_REPO = "Deekshithmmm/Double-entry-ledger"
 
@@ -48,11 +48,11 @@ class BugReportView(DjangoLedgerSecurityMixIn,
 
         message = (
             f"### Bug Report\n\n"
-            f"**How to reproduce:**\n{form_data['reproduce']}\n\n"
-            f"**Expected behavior:**\n{form_data['expectation']}\n\n"
-            f"**Device:**\n{form_data['device']}\n\n"
-            f"**User:** {self.request.user.username}\n"
-            f"**Email:** {self.request.user.email}"
+            f"How to reproduce:\n{form_data['reproduce']}\n\n"
+            f"Expected behavior:\n{form_data['expectation']}\n\n"
+            f"Device:\n{form_data['device']}\n\n"
+            f"User: {self.request.user.username}\n"
+            f"Email: {self.request.user.email}"
         )
 
         create_github_issue(
@@ -76,11 +76,11 @@ class RequestNewFeatureView(DjangoLedgerSecurityMixIn,
 
         message = (
             f"### Feature Request\n\n"
-            f"**Description:**\n{form_data['feature_description']}\n\n"
-            f"**Suggested solution:**\n{form_data['solution']}\n\n"
-            f"**Alternatives:**\n{form_data['alternatives']}\n\n"
-            f"**User:** {self.request.user.username}\n"
-            f"**Email:** {self.request.user.email}"
+            f"Description:\n{form_data['feature_description']}\n\n"
+            f"Solution:\n{form_data['solution']}\n\n"
+            f"Alternatives:\n{form_data['alternatives']}\n\n"
+            f"User: {self.request.user.username}\n"
+            f"Email: {self.request.user.email}"
         )
 
         create_github_issue(
