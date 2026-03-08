@@ -18,6 +18,10 @@ GITHUB_REPO = "Deekshithmmm/Double-entry-ledger"
 
 def create_github_issue(title, body):
 
+    if not GITHUB_TOKEN:
+        print("ERROR: GITHUB_TOKEN environment variable not found")
+        return
+
     url = f"https://api.github.com/repos/{GITHUB_REPO}/issues"
 
     headers = {
@@ -31,6 +35,9 @@ def create_github_issue(title, body):
     }
 
     response = requests.post(url, headers=headers, json=payload)
+
+    print("GitHub API Status:", response.status_code)
+    print("GitHub API Response:", response.text)
 
     return response
 
