@@ -405,3 +405,38 @@ a:hover { color: var(--djl-link-hover); }
 .message.is-danger {
   border-color: var(--djl-danger);
 }
+/* ===== Mobile Fix for Android screens ===== */
+
+.container {
+  max-width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* Make tables scrollable on small phones */
+.table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Reduce table font size on small screens */
+@media screen and (max-width: 768px) {
+
+  .table {
+    font-size: 12px;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+  }
+
+  .box {
+    padding: 10px;
+  }
+
+  .card {
+    margin: 5px;
+  }
+
+}
